@@ -1,0 +1,31 @@
+/your-project-root
+├── node_modules/
+├── src/
+│   ├── features/
+│   │   ├── login.feature
+│   │   └── dashboard.feature
+│   ├── step-definitions/
+│   │   ├── login.steps.ts
+│   │   └── dashboard.steps.ts
+│   ├── pages/
+│   │   ├── LoginPage.ts
+│   │   ├── DashboardPage.ts
+│   │   ├── components/
+│   │   │   └── TableComponent.ts // For reusable page components
+│   │   └── base/
+│   │   │   └── BasePage.ts // Optional base class for common methods
+│   ├── support/
+│   │   ├── hooks.ts // Lifecycle hooks (Before, After, etc.)
+│   │   ├── world.ts // Custom world parameters (shared page object access)
+│   │   └── PageFixture.ts // Shared access to Playwright page/context
+│   └── utils/
+│       ├── commonUtils.ts
+│       └── dataUtils.ts
+├── data/
+│   ├── testData.json // Test data files
+│   └── environments.json
+├── cucumber.js // Cucumber configuration file
+├── package.json
+├── tsconfig.json
+├── playwright.config.ts // Playwright configuration (if needed for global setup)
+└── ...other config files (e.g., eslint, prettier)
