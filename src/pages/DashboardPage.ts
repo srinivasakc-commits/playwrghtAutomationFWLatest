@@ -2,13 +2,12 @@ import {test, expect,Locator,Page} from '@playwright/test';
 
 export class DashboardPage
 {
-
+    page : Page;
     products : Locator;
     productsText : Locator;
     cart :Locator;
     orders : Locator;
-
-    page : Page;
+    
 
 constructor(page:Page)
 {
@@ -21,8 +20,7 @@ constructor(page:Page)
 }
 
 async searchProductAddCart(productName:string)
-{
-    
+{ 
     this.products.first().waitFor
     const titles= await this.productsText.allTextContents();
     console.log(titles);

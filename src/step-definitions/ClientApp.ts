@@ -1,8 +1,13 @@
 import {Given, When, Then} from "@cucumber/cucumber";
-import { expect } from "playwright/test";
+import { expect,chromium} from "playwright/test";
+import {POManager} from "../pages/POManager";
 let orderId:any;
 Given('a login to Ecommerce application with {string} and {string}', {timeout:100*1000}, async function (username, password) {
-    //  const products = this.page.locator(".card-body");
+      const browser = await chromium.launch({ 
+          headless: false });
+       const context = await browser.newContext();
+       const page = await context.newPage();
+        this.poManager = new POManager(page);
      const loginPage = this.poManager.getLoginPage();
      // The '!' non-null assertion operator tells TypeScript that we are certain it is defined by this point
     //  const loginPage = this.poManager!.getLoginPage();
@@ -19,7 +24,7 @@ Given('a login to Ecommerce application with {string} and {string}', {timeout:10
   Then('Verify {string} is displayed in the Cart', async function (productName) {
     const cartPage = this.poManager.getCartPage();
     await cartPage.verifyProductIsDisplayed(productName);
-    await cartPage.checkout();
+    await cartPage.checkoutProduct();
   });
 
   When('Enter valid details and Place the Order', async function () {

@@ -22,7 +22,7 @@ for(const data of dataset)
 
     const cartPage = poManager.getCartPage();
     await cartPage.verifyProductIsDisplayed(data.productName);
-    await cartPage.checkout();
+    await cartPage.checkoutProduct();
    let orderId:any;
     const ordersReviewPage = poManager.getOrdersReviewPage();
     await ordersReviewPage.searchCountryAndSelect("ind","India");
