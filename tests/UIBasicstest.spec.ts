@@ -1,4 +1,4 @@
- const {test, expect} = require('@playwright/test');
+import { test,expect } from '@playwright/test';
 
 
 
@@ -64,7 +64,7 @@
     await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
     const documentLink = page.locator("[href*='documents-request']");
 
-    const [newPage]=Promise.all(
+    const [newPage]=await Promise.all(
    [
       context.waitForEvent('page'),//listen for any new page pending,rejected,fulfilled
       documentLink.click(),

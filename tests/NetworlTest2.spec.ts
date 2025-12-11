@@ -1,4 +1,4 @@
-const { test,expect } = require('@playwright/test');
+import { test,expect } from '@playwright/test';
 
 
 test('@QW Security test request intercept', async ({ page }) => {

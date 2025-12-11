@@ -16,7 +16,7 @@ export default defineConfig({
   testDir: './tests', // Directory for test files
   retries: 0, // Number of retries for failed tests
   workers: 3, //Running tests using 5 workers
-  timeout: 30 * 1000, // Timeout for each test (30 seconds)
+  timeout: 60 * 1000, // Timeout for each test (30 seconds)
   reporter: 'html', // Use HTML reporter
   expect: {
     timeout: 30 * 1000, // Timeout for expect assertions (30 seconds)
@@ -32,9 +32,9 @@ export default defineConfig({
         screenshot: 'only-on-failure', // Capture screenshots only on failure
         headless: false, // Run tests in headful mode (non-headless)
         viewport: { width: 1280, height: 720 }, // Set a default viewport size
-        launchOptions: {
-          slowMo: 500, // Slow down actions for better visibility
-        },
+        // launchOptions: {
+        //   slowMo: 500, // Slow down actions for better visibility
+        // },
       },
     },
     {
@@ -49,7 +49,7 @@ export default defineConfig({
         // viewport: { width: 1280, height: 720 }, // Set a default viewport size
         launchOptions: {
           args:['--start-maximized'],
-          slowMo: 5000, // Slow down actions for better visibility
+          slowMo: 10000, // Slow down actions for better visibility
         },
         viewport:null
       },

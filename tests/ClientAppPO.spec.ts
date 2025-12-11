@@ -51,7 +51,7 @@ customTest.skip(`Client App login`, async ({page,testDataForOrder})=>
 
     const cartPage = poManager.getCartPage();
     await cartPage.verifyProductIsDisplayed(testDataForOrder.productName);
-    await cartPage.checkout();
+    await cartPage.checkoutProduct();
 })
 //test files will trigger parallel
 //individual tests in the file will run in sequence

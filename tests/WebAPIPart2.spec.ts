@@ -2,7 +2,7 @@
 
 //test browser-> .json , cart-,order, orderdetails,orderhistory
 import {test,expect} from '@playwright/test';
-let webContext;
+let webContext:any;
 
 test.beforeAll(async ({ browser }) => {
     const context = await browser.newContext();

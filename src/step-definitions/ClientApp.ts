@@ -1,21 +1,15 @@
-import {Given, When, Then} from "@cucumber/cucumber";
-import { expect,chromium} from "playwright/test";
-import {POManager} from "../pages/POManager";
+import {Given, When, Then, Before, After} from "@cucumber/cucumber";
+import {expect } from "@playwright/test";
+import { page } from "../support/hooks";
 let orderId:any;
-Given('a login to Ecommerce application with {string} and {string}', {timeout:100*1000}, async function (username, password) {
-      const browser = await chromium.launch({ 
-          headless: false });
-       const context = await browser.newContext();
-       const page = await context.newPage();
-        this.poManager = new POManager(page);
-     const loginPage = this.poManager.getLoginPage();
-     // The '!' non-null assertion operator tells TypeScript that we are certain it is defined by this point
-    //  const loginPage = this.poManager!.getLoginPage();
+Given('a login to Ecommerce application with {string} and {string}', async function (username, password) {
+     const loginPage = this.poManager.getLoginPage(page);
+ 
      await loginPage.goTo();
      await loginPage.validLogin(username,password);
 
   });
-  When('Add {string} to Cart',{timeout:100*1000},async function (productName) {
+  When('Add {string} to Cart',async function (productName) {
     this.dashboardPage = this.poManager.getDashboardPage();
     await this.dashboardPage.searchProductAddCart(productName);
     await this.dashboardPage.navigateToCart();
