@@ -94,7 +94,7 @@ import { test,expect } from '@playwright/test';
 
 
 
-   const  text = await newPage.locator(".red").textContent();
+   const  text:any = await newPage.locator(".red").textContent();
     const arrayText = text.split("@")
     const domain =  arrayText[1].split(" ")[0]
     console.log(domain);
