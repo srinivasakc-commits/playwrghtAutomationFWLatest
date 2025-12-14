@@ -33,3 +33,19 @@ Given('a login to Ecommerce application with {string} and {string}', async funct
     await ordersHistoryPage.searchOrderAndSelect(orderId);
     expect(orderId.includes(await ordersHistoryPage.getOrderId())).toBeTruthy();
   });
+    
+   Given('a login to Ecommerce2 application with {string} and {string}', async function (username, password) {
+        await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+          console.log(await page.title());
+            //css 
+          await page.locator('#username').fill(username);
+          await page.locator("[type='password']").fill(password);
+          await page.locator("#signInBtn").click();
+            
+         });
+      Then('Verify Error message is displayed', async function () {
+            console.log(await page.locator("[style*='block']").textContent());
+           await expect(page.locator("[style*='block']")).toContainText('Incorrect');
+         });    
+   
+ 

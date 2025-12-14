@@ -4,6 +4,11 @@
   "main": "index.js",
   "scripts": {
     "cucmberWithTs": "npx cucumber-js 'src/features/*.feature' --require-module ts-node/register --require 'src/step-difinitions/*.ts'",
+    "testc": "npx cucumber-js",
+    "htmlReport": "npx cucumber-js --tags \"@regression\" --parallel 2 --exit --format html:cucumber-report.html",
+     "smoke": "npx cucumber-js --tags \"@smoke\" --exit",
+     "retry" : "npx cucumber-js --tags \"@regression\"  --retry 1 --exit --format html:cucumber-report.html",
+     "parallRun": "npx cucumber-js  src/features/Ecommerce.feature --parallel 2 --exit",
     "test": "npx playwright test tests/WebAPIPart1.spec.js --headed",
     "regression": "npx playwright test",
     "webTest": "npx playwright test --grep @Web",
@@ -11,8 +16,7 @@
     "SafariNewConfig": "npx playwright test --config playwright1.config project=safari",
     "allure1": "npx playwright test --grep @web --reporter=line,allure-playwright",
     "allure2GenerateReport": "allure generate ./allure-results --clean",
-    "allure3OpenReport": "allure open ./allure-report",
-    "testc": "npx cucumber-js"
+    "allure3OpenReport": "allure open ./allure-report"
   },
   "keywords": [],
   "author": "",

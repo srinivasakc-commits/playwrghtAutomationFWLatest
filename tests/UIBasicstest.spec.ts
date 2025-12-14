@@ -16,8 +16,7 @@ import { test,expect } from '@playwright/test';
       page.on('response',response=> console.log(response.url(), response.status()));
       await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
       console.log(await page.title());
-      //css 
-     await userName.fill("rahulshetty");
+     await userName.fill("rahulshettyacademy");
      await page.locator("[type='password']").fill("learning");
      await signIn.click();
     console.log(await page.locator("[style*='block']").textContent());
