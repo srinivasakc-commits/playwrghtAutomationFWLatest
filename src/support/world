@@ -1,0 +1,18 @@
+// features/support/world.ts
+import { World, setWorldConstructor } from '@cucumber/cucumber';
+import { Browser, BrowserContext, Page } from '@playwright/test';
+import { POManager } from '../pages/POManager';
+
+// Define the interface that describes the properties available in your world
+export interface CustomWorld extends World {
+  browser?: Browser;
+  context?: BrowserContext;
+  page?: Page;
+  poManager?: POManager;
+}
+
+// Optional: You can implement a class, but defining the interface above 
+// is enough if you are primarily assigning properties in the Before hook.
+
+// If you want to use the full class structure from my previous answer, use that file instead.
+// For a minimal setup, defining the interface is enough, assuming you are in a JS/TS project configured for Cucumber.

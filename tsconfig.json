@@ -4,9 +4,13 @@
         "module": "commonjs",
         "strict": true,
         "esModuleInterop": true,
+        "skipLibCheck": true,
+        "lib": ["es2024", "DOM"],
+        "types": ["@cucumber/cucumber", "node", "playwright/test"]
     },
     "include": [
-        "src/**/*.ts"
+       "src/**/*.ts", 
+        "src/features/**/*.feature" 
     ],
     "exclude": [
         "node_module"
