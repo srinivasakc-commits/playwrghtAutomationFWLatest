@@ -5,6 +5,7 @@ setDefaultTimeout(60 * 1000);
 let browser:Browser;
 let context: BrowserContext;
 let page:Page;
+
 Before(async function(){
   browser = await chromium.launch
         ({ 

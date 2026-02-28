@@ -20,6 +20,8 @@ test.beforeAll(async ({ browser }) => {
 
 })
 
+
+
 test('@QA Client App login', async () => {
     //fail
     const email = "rahulshetty@gmail.com";

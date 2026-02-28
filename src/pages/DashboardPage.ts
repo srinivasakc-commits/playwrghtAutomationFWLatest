@@ -16,6 +16,7 @@ constructor(page:Page)
     this.productsText = page.locator(".card-body b");
     this.cart =  page.locator("button[routerlink='/dashboard/cart']");
     this.orders = page.locator("button[routerlink*='myorders']");
+   
 
 }
 
